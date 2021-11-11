@@ -1,17 +1,13 @@
 package main
 
 import (
-    "fmt"
+    //"fmt"
     "log"
-    //"image/color"
 
     "fyne.io/fyne/v2"
     "fyne.io/fyne/v2/app"
-    //"fyne.io/fyne/v2/canvas"
     "fyne.io/fyne/v2/container"
-    //"fyne.io/fyne/v2/layout"
     "fyne.io/fyne/v2/theme"
-    //"fyne.io/fyne/v2/widget"
 )
 
 const preferenceCurrentTutorial = "currentTutorial"
@@ -20,7 +16,6 @@ const preferenceCurrentTutorial = "currentTutorial"
 var topWindow fyne.Window
 
 func main() {
-	fmt.Print("hello")
     a := app.NewWithID("com.kaligo.fyne")
     a.SetIcon(theme.FyneLogo())
     logLifecycle(a)

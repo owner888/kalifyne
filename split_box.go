@@ -16,6 +16,8 @@ type Tutorial struct {
 }
 
 var (
+    //kaliGoDB database.DB
+
     // Tutorials defines the metadata for each tutorial
     Tutorials = map[string]Tutorial{
         "welcome": {"Welcome", "Welcome Intor", welcomeScreen},
@@ -30,12 +32,12 @@ var (
 )
 
 func init() {
-    db, err := database.Open(sqlite.Open("./test.db"))
+    kaliGoDB, err := database.Open(sqlite.Open("./test.db"))
     if err != nil {
         panic(err)
     }
 
-    tables := db.Schema().ListTables()
+    tables := kaliGoDB.Schema().ListTables()
     fmt.Printf("jsonStr = %v\n", database.FormatJSON(tables))
 
     for _, v := range tables {
@@ -79,7 +81,6 @@ func makeSplitBox(c *fyne.Container, w fyne.Window) fyne.CanvasObject {
     //}
 
     splitBox := container.NewHSplit(makeNav(setTutorial, true), c)
-    //splitBox := container.NewHSplit(tree, c)
     splitBox.SetOffset(0.2)
 
     return splitBox
